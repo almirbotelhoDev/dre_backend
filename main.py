@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 import pandas as pd
-from backend.services.dre_service import processar_dre
+from services.dre_service import processar_dre
 
 # 👇 PRIMEIRO define o app
 app = FastAPI()
