@@ -22,6 +22,8 @@ async def process(file: UploadFile = File(...)):
     df = pd.read_excel(file.file)
     print("Arquivo carregado")
 
+    print("Colunas recebidas:", df.columns.tolist())
+    
     df["Data"] = pd.to_datetime(df["Data"])
 
     resultado = processar_dre(df)
