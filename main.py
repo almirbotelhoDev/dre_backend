@@ -1,9 +1,17 @@
 from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from services.dre_service import processar_dre
 
-# 👇 PRIMEIRO define o app
 app = FastAPI()
+
+# Adicionar isso:
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # 👇 DEPOIS cria a rota
 @app.post("/process")
